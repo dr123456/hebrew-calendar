@@ -3,14 +3,21 @@
   "version": "0.1.0",
   "description": "Utilities for working with Hebrew calendar dates",
   "author": "Mike Green <mike.is.green@gmail.com>",
-  "repo": {
+  "repository": {
     "type": "git",
     "url": "https://github.com/mikedamage/hebrew-calendar.git"
   },
   "bin": {
     "hebdate": "./es5/bin/hebdate.js"
   },
-  "dependencies": {},
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "lodash": "^4.13.1",
+    "moment": "^2.13.0",
+    "q": "^1.4.1",
+    "q-io": "^1.13.2",
+    "yargs": "^4.7.1"
+  },
   "devDependencies": {
     "babel-cli": "^6.10.1",
     "babel-preset-es2015": "^6.9.0"
