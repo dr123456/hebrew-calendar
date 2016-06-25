@@ -16,6 +16,7 @@
     "moment": "^2.13.0",
     "q": "^1.4.1",
     "q-io": "^1.13.2",
+    "query-string": "^4.2.2",
     "yargs": "^4.7.1"
   },
   "devDependencies": {
@@ -28,7 +29,7 @@
     "jewish"
   ],
   "scripts": {
-    "build": "babel-cli es6 --presets babel-preset-es2015 --out-dir es5",
+    "build": "babel es6 --presets babel-preset-es2015 --out-dir es5",
     "prepublish": "npm run build"
   }
 }
