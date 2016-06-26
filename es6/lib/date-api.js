@@ -3,6 +3,8 @@ import http        from 'q-io/http';
 import moment      from 'moment';
 import queryString from 'query-string';
 
+const readBody = (resp) => resp.body.read();
+
 class DateAPI {
 
   constructor() {
@@ -14,7 +16,7 @@ class DateAPI {
 
     let query = {
       gy: gregorianDate.year(),
-      gm: gregorianDate.month(),
+      gm: gregorianDate.month() + 1,
       gd: gregorianDate.date(),
       g2h: 1,
       gs: 'on',
@@ -28,7 +30,7 @@ class DateAPI {
     return http.request({
       url: url,
       method: 'GET'
-    });
+    }).then(readBody).then(JSON.parse);
   }
 
 }
