@@ -1,4 +1,3 @@
-import _           from 'lodash';
 import http        from 'q-io/http';
 import moment      from 'moment';
 import queryString from 'query-string';
@@ -7,8 +6,14 @@ const readBody = (resp) => resp.body.read();
 
 class DateAPI {
 
-  constructor() {
+  constructor(options = {}) {
     this.baseURL = 'http://www.hebcal.com/converter/';
+    this.debug   = !!options.debug;
+  }
+
+  log() {
+    if (!this.debug) return;
+    console.log.apply(console, arguments);
   }
 
   hebrewDate(gregorianDate) {
@@ -25,7 +30,7 @@ class DateAPI {
 
     let url = `${this.baseURL}?${queryString.stringify(query)}`;
 
-    console.log(url);
+    this.log('Pinging URL: %s', url);
 
     return http.request({
       url: url,
