@@ -20,7 +20,7 @@ if (argv._.length > 0) {
   date = moment(argv._[0]);
 }
 
-let api = new API();
+let api = new API({ debug: argv.debug });
 
 api.hebrewDate(date).then((json) => {
   console.log(`${json.hd} ${json.hm}, ${json.hy}`);

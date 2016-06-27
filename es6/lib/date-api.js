@@ -28,9 +28,11 @@ class DateAPI {
       cfg: 'json'
     };
 
+    this.log('Date Query Object: ', query);
+
     let url = `${this.baseURL}?${queryString.stringify(query)}`;
 
-    this.log('Pinging URL: %s', url);
+    this.log('Pinging URL: ', url);
 
     return http.request({
       url: url,
